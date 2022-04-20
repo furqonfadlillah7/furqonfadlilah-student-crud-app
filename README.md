@@ -36,3 +36,8 @@ Delete Student
 ![Edit Student Page](img/edit.jpg "Edit Student Page")
 
 ![Index Home Page](img/list3.jpg "Index Home Page")
+
+####Add Birthdate
+![Index Home Page](img/edit1.jpg "Edit Student Page")
+
+![Index Home Page](img/list4.jpg "Index Home Page")
