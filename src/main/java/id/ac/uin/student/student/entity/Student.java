@@ -3,12 +3,11 @@ package id.ac.uin.student.student.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -30,6 +29,11 @@ public class Student {
     @Column(nullable = false, name = "last_name")
     private String lastName;
 
+    @NotNull(message = "Please enter birth date")
+    @Past(message = "Birth date should less than current date")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate birthDate;
+
     @NotEmpty(message = "email is required")
     @Email
     @Column(nullable = false, name = "email", unique = true)
@@ -43,6 +47,6 @@ public class Student {
 
     @NotEmpty(message = "jurusan is required")
     @NotNull(message = "Jurusan cannot be null")
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String jurusan;
 }
